@@ -6,6 +6,7 @@ const ITEMS: { key: View; label: string }[] = [
   { key: 'explore', label: 'Explore' },
   { key: 'overview', label: 'Přehled' },
   { key: 'itinerary', label: 'Itinerář' },
+  { key: 'todo', label: 'To Do' },
   { key: 'budget', label: 'Rozpočet' },
 ]
 

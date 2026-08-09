@@ -24,7 +24,7 @@ import type {
   Trip,
 } from './types'
 
-export type View = 'plans' | 'planmap' | 'explore' | 'overview' | 'itinerary' | 'budget'
+export type View = 'plans' | 'planmap' | 'explore' | 'overview' | 'itinerary' | 'todo' | 'budget'
 export type Mode = 'edit' | 'view'
 
 // ── patch → DB column mappers ───────────────────────────────────────────────
@@ -112,6 +112,8 @@ interface Store {
   setPlanFocus: (s: string) => void
   exploreState: Record<string, 'added' | 'rejected'>
   setExplore: (id: string, s: 'added' | 'rejected' | null) => void
+  todoState: Record<string, boolean>
+  setTodoDone: (id: string, done: boolean) => void
   activeId: string | null
   setActiveId: (id: string | null) => void
   mapMobileOpen: boolean
@@ -190,6 +192,24 @@ export function StoreProvider({ slug, children }: { slug: string; children: Reac
       else next[id] = s
       try {
         localStorage.setItem('explore:v1', JSON.stringify(next))
+      } catch {
+        /* ignore */
+      }
+      return next
+    })
+  }
+  const [todoState, setTodoStateRaw] = useState<Record<string, boolean>>(() => {
+    try {
+      return JSON.parse(localStorage.getItem('todo:v1') || '{}')
+    } catch {
+      return {}
+    }
+  })
+  const setTodoDone = (id: string, done: boolean) => {
+    setTodoStateRaw((prev) => {
+      const next = { ...prev, [id]: done }
+      try {
+        localStorage.setItem('todo:v1', JSON.stringify(next))
       } catch {
         /* ignore */
       }
@@ -588,6 +608,8 @@ export function StoreProvider({ slug, children }: { slug: string; children: Reac
     setPlanFocus,
     exploreState,
     setExplore,
+    todoState,
+    setTodoDone,
     activeId,
     setActiveId,
     mapMobileOpen,

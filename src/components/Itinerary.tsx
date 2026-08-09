@@ -27,9 +27,10 @@ export default function Itinerary() {
         <li className="itin-step">
           <span className="itin-dot itin-dot-end" />
           <div className="itin-body">
-            <div className="itin-when">{arrive} · přílet</div>
+            <div className="itin-when">{arrive} · {SHARED.departTime} odlet Praha · {SHARED.arriveTime} přílet Tirana</div>
             <div className="itin-title">Praha → Tirana, pak autem na základnu</div>
             <div className="itin-note">{SHARED.flight}</div>
+            <div className="itin-note">{SHARED.arriveNote}</div>
           </div>
         </li>
 

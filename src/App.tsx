@@ -7,7 +7,9 @@ import PlanMap from './components/PlanMap'
 import Explore from './components/Explore'
 import Overview from './components/Overview'
 import Itinerary from './components/Itinerary'
+import ToDo from './components/ToDo'
 import Budget from './components/Budget'
+import Gate from './components/Gate'
 import MapPane from './components/MapPane'
 import Snackbar from './components/Snackbar'
 
@@ -63,6 +65,7 @@ function Shell() {
             {view === 'explore' && <Explore />}
             {view === 'overview' && <Overview />}
             {view === 'itinerary' && <Itinerary />}
+            {view === 'todo' && <ToDo />}
             {view === 'budget' && <Budget />}
           </div>
         </div>
@@ -80,8 +83,10 @@ function Shell() {
 export default function App() {
   const slug = useRouteSlug()
   return (
-    <StoreProvider slug={slug} key={slug}>
-      <Shell />
-    </StoreProvider>
+    <Gate>
+      <StoreProvider slug={slug} key={slug}>
+        <Shell />
+      </StoreProvider>
+    </Gate>
   )
 }

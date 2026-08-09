@@ -11,6 +11,10 @@ export const SHARED = {
   flightLink:
     'https://www.skyscanner.cz/doprava/lety/prg/tira/260814/260823/?adultsv2=4&cabinclass=economy&rtn=1',
   note: 'Termíny i ceny se u jednotlivých variant můžou lišit.',
+  departTime: '06:00',
+  arriveTime: '08:00',
+  arriveNote:
+    'Odlet z Prahy v 6:00, přílet do Tirany kolem 8:00 (stejné pásmo, žádný časový posun). Půjčovna auta vyzvedne přímo na letišti.',
 }
 
 // Výchozí ceny (dají se přepsat u konkrétní varianty).
