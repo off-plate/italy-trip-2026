@@ -109,6 +109,7 @@ const VLORE_LODGING: Lodging[] = [
   {
     name: 'Villa Solis',
     priceCzk: 6114,
+    breakfast: true,
     note: 'Rezervováno',
     detail: 'Vlorë, 16.–18. 8. Rezervováno, zatím neplaceno. Poloha přibližná.',
     lat: 40.458,
