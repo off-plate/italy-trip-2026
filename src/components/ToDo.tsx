@@ -30,6 +30,11 @@ export default function ToDo() {
                     <span className="todo-label">{it.label}</span>
                   </label>
                   {it.note && <span className="todo-note">{it.note}</span>}
+                  {it.link && (
+                    <a className="todo-link" href={it.link} target="_blank" rel="noreferrer">
+                      {it.linkLabel ?? 'Otevřít →'}
+                    </a>
+                  )}
                 </li>
               )
             })}

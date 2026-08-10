@@ -2,6 +2,8 @@ export interface TodoItem {
   id: string
   label: string
   note?: string
+  link?: string
+  linkLabel?: string
 }
 
 export interface TodoGroup {
@@ -47,5 +49,18 @@ export const TODO_GROUPS: TodoGroup[] = [
     id: 'fun',
     title: 'Zábava',
     items: [{ id: 'music', label: 'Playlist albánské hudby do auta' }],
+  },
+  {
+    id: 'experiences',
+    title: 'Zážitky k rezervaci',
+    items: [
+      {
+        id: 'osumi-packrafting',
+        label: 'Zarezervovat packrafting v kaňonu Osumi',
+        note: 'Exclusive Packrafting Osumi Canyons, Albrafting.',
+        link: 'https://www.albrafting.org/tour/exclusive-packrafting-osumi-canyons',
+        linkLabel: 'Otevřít nabídku →',
+      },
+    ],
   },
 ]
